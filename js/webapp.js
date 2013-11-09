@@ -26,7 +26,6 @@
     var  answerTemplate = $("#answer-screen-template").html();
 
     jsQuestionScreen.on('click','#multiple-choice button',function(event){
-        console.log(event.target.id);
         jsQuestionScreen.hide();
 
         var answerID=-1;
@@ -45,9 +44,17 @@
         Quizz.answer(answerID);
 
         jsAnswerScreen.html(Quizz.renderAnswerTemplate(answerTemplate,question,answerID));
+        
         jsAnswerScreen.show();
     });
+
+    jsAnswerScreen.on('click','#next-question',function(){
+        jsAnswerScreen.hide();
+        question = Quizz.getNext();
+        jsQuestionScreen.html(Quizz.renderQuestionTemplate(questionTemplate,question)).show();
+    });
     
+    // init
     jsQuestionScreen.html(Quizz.renderQuestionTemplate(questionTemplate,question)).show();
 
     var timerTime = Quizz.getTimer();

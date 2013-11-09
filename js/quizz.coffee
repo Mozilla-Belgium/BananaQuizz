@@ -97,12 +97,21 @@ class Quizz
     for response,id in question.responses
       if response.valid
         validId = id
+
+    if @current+1 < @getNumberOfQuestions()
+      nextQuestion = true
+    else
+      nextQuestion = false
+
+    console.log("Next Question : #{nextQuestion}")
+
     template = Handlebars.compile(answerTemplate)
     context =
       resultStatus: resultStatus
       result: result
       answer: question.responses[validId].display
       score: @score
+      nextQuestion: nextQuestion
       current: @getCurrentQuestionNumber()
     html = template(context)
 

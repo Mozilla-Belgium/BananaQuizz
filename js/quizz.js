@@ -115,7 +115,7 @@ Quizz = (function() {
   };
 
   Quizz.prototype.renderAnswerTemplate = function(answerTemplate, question, answerId) {
-    var context, html, id, response, result, resultStatus, template, validId, _i, _len, _ref;
+    var context, html, id, nextQuestion, response, result, resultStatus, template, validId, _i, _len, _ref;
     if (this.isValidAnswer(answerId)) {
       resultStatus = 'right';
       result = Quizz.ResultSuccess;
@@ -130,12 +130,19 @@ Quizz = (function() {
         validId = id;
       }
     }
+    if (this.current + 1 < this.getNumberOfQuestions()) {
+      nextQuestion = true;
+    } else {
+      nextQuestion = false;
+    }
+    console.log("Next Question : " + nextQuestion);
     template = Handlebars.compile(answerTemplate);
     context = {
       resultStatus: resultStatus,
       result: result,
       answer: question.responses[validId].display,
       score: this.score,
+      nextQuestion: nextQuestion,
       current: this.getCurrentQuestionNumber()
     };
     return html = template(context);

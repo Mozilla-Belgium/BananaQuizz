@@ -42,7 +42,9 @@
         </div>
         <div id="answer">{{answer}}</div>
         <div id="score">Score: {{score}}/{{current}}</div>
+        {{#if nextQuestion}}
         <button id="next-question">Next question</button>
+        {{/if}}
     </script>
 </head>
 
