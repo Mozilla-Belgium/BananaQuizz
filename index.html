@@ -27,23 +27,22 @@
 
     <script id="question-screen-template" type="text/x-handlebars-template">
         <div id="timer">{{timer}}</div>
-            <div id="question-number">Question {{current}}/{{number}}</div>
-            
-            <h2 id="question">{{question}}</h2>
-            <div id="multiple-choice">
-                <button id="anwser1">A. {{answer1}}</button>
-                <button id="anwser2">B. {{answer2}}</button>
-                <button id="anwser3">C. {{answer3}}</button>
-            </div>
+        <div id="question-number">Question {{current}}/{{number}}</div>
+        
+        <h2 id="question">{{question}}</h2>
+        <div id="multiple-choice">
+            <button id="answer1">A. {{answer1}}</button>
+            <button id="answer2">B. {{answer2}}</button>
+            <button id="answer3">C. {{answer3}}</button>
+        </div>
     </script>
     <script id="answer-screen-template" type="text/x-handlebars-template">
         <div id="answer-status">
-                <div id="picto"></div>
-                Right answer!
-            </div>
-            <div id="answer">{{answer}}</div>
-            <div id="score">Score: {{score}}/{{current}}</div>
-            <button id="next-question">Next question</button>
+            <div id="picto" class="{{resultStatus}}"></div>{{result}}
+        </div>
+        <div id="answer">{{answer}}</div>
+        <div id="score">Score: {{score}}/{{current}}</div>
+        <button id="next-question">Next question</button>
     </script>
 </head>
 
@@ -81,6 +80,7 @@
         </div>
     </footer>
 
+    <script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
     <script type="text/javascript" src="js/handlebars.js"></script>
     <script type="text/javascript" src="js/quizz.js"></script>
     <script type="text/javascript" src="js/base.js"></script>

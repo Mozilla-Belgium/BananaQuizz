@@ -17,12 +17,40 @@
             view (type: "url" etc. "text/html"?)
     */
     var Quizz = new window.Quizz();
+    var question = Quizz.getNext();
+
+    var jsQuestionScreen = $('.js-question-screen');
+    var jsAnswerScreen = $('.js-answer-screen');
+
+    var  questionTemplate = $("#question-screen-template").html();
+    var  answerTemplate = $("#answer-screen-template").html();
+
+    jsQuestionScreen.on('click','#multiple-choice button',function(event){
+        console.log(event.target.id);
+        jsQuestionScreen.hide();
+
+        var answerID=-1;
+        switch(event.target.id){
+            case 'answer1':
+                answerID=0;
+                break;
+            case 'answer2':
+                answerID=1;
+                break;
+            case 'answer3':
+                answerID=2;
+                break;
+        }
+
+        Quizz.answer(answerID);
+
+        jsAnswerScreen.html(Quizz.renderAnswerTemplate(answerTemplate,question,answerID));
+        jsAnswerScreen.show();
+    });
+    
+    jsQuestionScreen.html(Quizz.renderQuestionTemplate(questionTemplate,question)).show();
 
     var timerTime = Quizz.getTimer();
-    console.log(timerTime);
-
-    var htmlTimer = document.getElementById('timer');
-    htmlTimer.innerHTML = Math.floor(timerTime/1000);
 
     // WebActivities
     var pickImage = document.querySelector("#pick-image");

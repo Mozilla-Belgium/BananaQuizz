@@ -180,7 +180,6 @@ h2#question
 #picto{
     position: relative;
     float:left;
-    background-color: #5F9B0A;
     color:#fff;
     font-size: 1em;
     font-weight: bold;
@@ -189,6 +188,14 @@ h2#question
     height:2em;
     border-radius: 3em;
     margin-right: 1em;
+}
+
+#picto.right{
+    background-color: #5F9B0A;
+}
+
+#picto.wrong{
+    background-color: #B90000;
 }
 
 #answer{
