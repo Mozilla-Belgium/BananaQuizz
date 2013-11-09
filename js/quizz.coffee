@@ -1,5 +1,5 @@
 class Quizz
-  @DefaultTimer: 3000
+  @DefaultTimer: 10000
   @ResultSuccess: 'Right answer!'
   @ResultFailure: 'Wrong answer!'
 

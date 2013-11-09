@@ -31,12 +31,12 @@
   },
   "locales": {
     "en": {
-      "name": "Firefox OS Boilerplate App",
-      "description": "Boilerplate Firefox OS app with example use cases to get started"
+      "name": "Banana Quizz",
+      "description": "Banana Quizz is a fun quizz game"
     },
     "fr-BE": {
-      "name": "Firefox OS Boilerplate App",
-      "description": "Boilerplate Firefox OS app com exemplos de uso para começar"
+      "name": "Banana Quizz",
+      "description": "Banana Quizz est un jeu de questions amusant"
     }
   }
 }

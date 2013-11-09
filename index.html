@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="css/headers.css">
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
     <link rel="stylesheet" type="text/css" href="css/toolbars.css">
-    <title>BananaQuizz</title>
+    <title>Banana Quizz</title>
         <!-- Localization -->
     <link rel="resource" type="application/l10n" href="locales/locales.ini" />
     <script type="application/javascript" src="js/l10n.js"></script>
@@ -40,7 +40,9 @@
         <div id="answer-status">
             <div id="picto" class="{{resultStatus}}"></div>{{result}}
         </div>
-        <div id="answer">{{answer}}</div>
+        <p>The right answer was:</p>
+        <div id="answer">
+        {{answer}}</div>
         <div id="score">Score: {{score}}/{{current}}</div>
         {{#if nextQuestion}}
         <button id="next-question">Next question</button>
@@ -57,7 +59,7 @@
             <menu type="toolbar">
                 <button id="install"><span class="icon icon-add">add</span></button>
             </menu>
-            <h1 data-l10n-id="app-heading">BananaQuizz</h1>
+            <h1 data-l10n-id="app-heading">Banana Quizz</h1>
         </header>
     </section>
 

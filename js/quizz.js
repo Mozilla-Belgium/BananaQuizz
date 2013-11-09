@@ -2,7 +2,7 @@
 var Quizz;
 
 Quizz = (function() {
-  Quizz.DefaultTimer = 3000;
+  Quizz.DefaultTimer = 10000;
 
   Quizz.ResultSuccess = 'Right answer!';
 
