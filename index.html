@@ -19,7 +19,7 @@
     <link rel="stylesheet" type="text/css" href="css/headers.css">
     <link rel="stylesheet" type="text/css" href="css/buttons.css">
     <link rel="stylesheet" type="text/css" href="css/toolbars.css">
-    <title>Firefox OS Boilerplate App</title>
+    <title>BananaQuizz</title>
         <!-- Localization -->
     <link rel="resource" type="application/l10n" href="locales/locales.ini" />
     <script type="application/javascript" src="js/l10n.js"></script>
@@ -35,22 +35,35 @@
             <menu type="toolbar">
                 <button id="install"><span class="icon icon-add">add</span></button>
             </menu>
-            <h1 data-l10n-id="app-heading">
-                BananaQuizz
-            </h1>
+            <h1 data-l10n-id="app-heading">BananaQuizz</h1>
         </header>
     </section>
 
 
     <div id="main">
 
-        <p id="installation-instructions">Press the + button in the top right corner to install this app.</p>
-        <button id="vibrate" data-l10n-id="vibrate">Vibrate 2 sec</button>
+        <!--<p id="installation-instructions">Press the + button in the top right corner to install this app.</p>
+        <button id="vibrate" data-l10n-id="vibrate">Vibrate 2 sec</button> -->
         <div class="js-question-screen">
-            <h2>Question?</h2>
+            <div id="timer">10</div>
+            <div id="question-number">Question 1/10</div>
+            
+            <h2 id="question">What is the capital of Peru?</h2>
+            <div id="multiple-choice">
+                <button id="anwser-1">A. Brussels</button>
+                <button id="anwser-1">B. Paris</button>
+                <button id="anwser-1">C. Lima</button>
+            </div>
         </div>
         <div class="js-answer-screen">
-            <h2>Answer</h2>
+            <div id="answer-status">
+                <div id="picto">V</div>
+                Right answer!
+            </div>
+            <div id="answer">C. Lima</div>
+            <div id="score">Score: 1/1</div>
+            <button id="next-question">Next question</button>
+
         </div>
     </div>
 
