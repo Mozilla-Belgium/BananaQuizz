@@ -2,7 +2,7 @@
 var Quizz;
 
 Quizz = (function() {
-  Quizz.prototype.DefaultTimer = 10000;
+  Quizz.DefaultTimer = 10000;
 
   function Quizz() {
     console.log("Quizz object created");
@@ -39,6 +39,7 @@ Quizz = (function() {
     ];
     this.current = 0;
     this.score = 0;
+    this.timer = Quizz.DefaultTimer;
   }
 
   Quizz.prototype.getScore = function() {
@@ -48,6 +49,7 @@ Quizz = (function() {
   Quizz.prototype.resetQuizz = function() {
     this.score = 0;
     this.current = 0;
+    this.timer = Quizz.DefaultTimer;
     return this;
   };
 

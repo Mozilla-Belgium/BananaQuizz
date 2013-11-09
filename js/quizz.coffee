@@ -1,5 +1,5 @@
 class Quizz
-  DefaultTimer: 10000
+  @DefaultTimer: 10000
 
   constructor:()->
     console.log("Quizz object created")
@@ -28,8 +28,9 @@ class Quizz
         valid: false
       ]
     ]
-    @current = 0
+    @current = -1
     @score = 0
+    @timer = Quizz.DefaultTimer
 
   getScore:()->
     return @score
@@ -37,6 +38,7 @@ class Quizz
   resetQuizz:()->
     @score=0
     @current=0
+    @timer = Quizz.DefaultTimer
     return @
 
   getNumberOfQuestions:()->

@@ -18,6 +18,12 @@
     */
     var Quizz = new window.Quizz();
 
+    var timerTime = Quizz.getTimer();
+    console.log(timerTime);
+
+    var htmlTimer = document.getElementById('timer');
+    htmlTimer.innerHTML = Math.floor(timerTime/1000);
+
     // WebActivities
     var pickImage = document.querySelector("#pick-image");
     if (pickImage) {
