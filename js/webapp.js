@@ -26,10 +26,12 @@
     var  answerTemplate = $("#answer-screen-template").html();
 
     var timeOut = null;
+    var timerTime = null;
+    var timer = null;
 
     var goToAnswer = function(event){
         clearTimeout(timeOut);
-        
+
         jsQuestionScreen.hide();
 
         var answerID=-1;
@@ -68,20 +70,24 @@
             $('#timer').html(timerTime);
             timeOut = setTimeout(timeOutFunction,1000);
         }else{
+            navigator.vibrate(500);
             goToAnswer(null);
             clearTimeout(timeOut);
         }
     }
+
 
     jsQuestionScreen.on('click','#multiple-choice button',goToAnswer);
 
     jsAnswerScreen.on('click','#next-question',goToQuestion);
     
     // init
-    jsQuestionScreen.html(Quizz.renderQuestionTemplate(questionTemplate,question)).show();
-
-    var timerTime = Quizz.getTimer()/1000;
-    var timer = setTimeout(timeOutFunction,1000);
+    $(function(){
+        jsQuestionScreen.html(Quizz.renderQuestionTemplate(questionTemplate,question)).show();
+        timerTime = Quizz.getTimer()/1000;
+        timer = setTimeout(timeOutFunction,1000);
+    });
+    
 
     // WebActivities
     var pickImage = document.querySelector("#pick-image");
