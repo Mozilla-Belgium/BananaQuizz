@@ -26,16 +26,100 @@ Quizz = (function() {
           }
         ]
       }, {
-        question: "test",
+        question: "Who named his company Ta Mère?",
         responses: [
           {
-            display: "r1",
-            valid: true
-          }, {
-            display: "r1",
+            display: "Michaël Hoste",
             valid: false
           }, {
-            display: "r1",
+            display: "Aurélien Malisart",
+            valid: false
+          }, {
+            display: "François Stephany",
+            valid: true
+          }
+        ]
+      }, {
+        question: "What birthday are we celebrating today?",
+        responses: [
+          {
+            display: "Firefox's birthday",
+            valid: true
+          }, {
+            display: "Mozilla's birthday",
+            valid: false
+          }, {
+            display: "Firefox OS's birthday",
+            valid: false
+          }
+        ]
+      }, {
+        question: "When is the next PechaKucha Mons organised?",
+        responses: [
+          {
+            display: "November 20, 2013",
+            valid: true
+          }, {
+            display: "November 21, 2013",
+            valid: false
+          }, {
+            display: "November 22, 2013",
+            valid: false
+          }
+        ]
+      }, {
+        question: "What is the average lifespan of a red panda (firefox)?",
+        responses: [
+          {
+            display: "Between 1 and 3 years",
+            valid: false
+          }, {
+            display: "Between 8 and 10 years",
+            valid: true
+          }, {
+            display: "Between 15 and 20 years",
+            valid: false
+          }
+        ]
+      }, {
+        question: "What does the fox say? (according to Yilvis)",
+        responses: [
+          {
+            display: "Ring-ding-ding-ding-dingeringeding!",
+            valid: false
+          }, {
+            display: "Wa-pa-pa-pa-pa-pa-pow!",
+            valid: false
+          }, {
+            display: "No one knows",
+            valid: true
+          }
+        ]
+      }, {
+        question: "What does Dark Vader say to Luke?",
+        responses: [
+          {
+            display: "Luke, I am your father",
+            valid: false
+          }, {
+            display: "No. I am your father.",
+            valid: true
+          }, {
+            display: "Yo, wassup my man?",
+            valid: false
+          }
+        ]
+      }, {
+        question: "When is the next Friday 13?",
+        responses: [
+          {
+            display: "December 2013",
+            valid: true
+          }, {
+            display: "June 2014",
+            valid: false
+          }, {
+            display: "July 2014",
             valid: false
           }
         ]
