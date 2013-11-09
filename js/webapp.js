@@ -16,6 +16,7 @@
             test
             view (type: "url" etc. "text/html"?)
     */
+    var Quizz = new window.Quizz();
 
     // WebActivities
     var pickImage = document.querySelector("#pick-image");
