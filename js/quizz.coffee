@@ -50,7 +50,7 @@ class Quizz
       ,
         display: "November 21, 2013"
         valid: false
-      , {
+      ,
         display: "November 22, 2013"
         valid: false
       ]

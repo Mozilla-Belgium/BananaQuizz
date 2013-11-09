@@ -25,7 +25,11 @@
     var  questionTemplate = $("#question-screen-template").html();
     var  answerTemplate = $("#answer-screen-template").html();
 
+    var timeOut = null;
+
     var goToAnswer = function(event){
+        clearTimeout(timeOut);
+        
         jsQuestionScreen.hide();
 
         var answerID=-1;
@@ -52,26 +56,20 @@
 
     var goToQuestion = function(event){
         jsAnswerScreen.hide();
-        previousQuestion = Quizz.getCurrent();
         question = Quizz.getNext();
-        if(question != null){
-            jsQuestionScreen.html(Quizz.renderQuestionTemplate(questionTemplate,question)).show();
-            timerTime = Quizz.getTimer()/1000;
-            timer = setTimeout(timeOutFunction,1000);
-        }else{
-            question = previousQuestion;
-            goToAnswer(null);
-        }
+        jsQuestionScreen.html(Quizz.renderQuestionTemplate(questionTemplate,question)).show();
+        timerTime = Quizz.getTimer()/1000;
+        timeOut = setTimeout(timeOutFunction,1000);
     }
 
     var timeOutFunction = function(){
         timerTime = timerTime-1;
         if(timerTime>0){
             $('#timer').html(timerTime);
-            setTimeout(timeOutFunction,1000);
+            timeOut = setTimeout(timeOutFunction,1000);
         }else{
-            Quizz.answer(-1);
-            goToQuestion(null);
+            goToAnswer(null);
+            clearTimeout(timeOut);
         }
     }
 
