@@ -19,7 +19,7 @@ class Quizz
         valid: false
       ]
     , 
-      question: "Who named his company <em>Ta Mère</em>?"
+      question: "Who named his company Ta Mère?"
       responses: [
         display: "Michaël Hoste"
         valid: false
