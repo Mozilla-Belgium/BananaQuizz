@@ -4,14 +4,14 @@
   "launch_path": "/BananaQuizz/index.html",
   "description": "Quizz Game",
   "icons": {
-    "16": "/BananaQuizz/images/logo16.png",
-    "32": "/BananaQuizz/images/logo32.png",
-    "48": "/BananaQuizz/images/logo48.png",
-    "60": "/BananaQuizz/images/logo60.png",
-    "64": "/BananaQuizz/images/logo64.png",
-    "90": "/BananaQuizz/images/logo90.png",
-    "120": "/BananaQuizz/images/logo120.png",
-    "128": "/BananaQuizz/images/logo128.png"
+    "16": "/images/logo16.png",
+    "32": "/images/logo32.png",
+    "48": "/images/logo48.png",
+    "60": "/images/logo60.png",
+    "64": "/images/logo64.png",
+    "90": "/images/logo90.png",
+    "120": "/images/logo120.png",
+    "128": "/images/logo128.png"
   },
   "developer": {
     "name": "Didier Toussaint",
