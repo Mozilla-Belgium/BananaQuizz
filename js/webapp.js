@@ -25,20 +25,22 @@
     var  questionTemplate = $("#question-screen-template").html();
     var  answerTemplate = $("#answer-screen-template").html();
 
-    jsQuestionScreen.on('click','#multiple-choice button',function(event){
+    var goToAnswer = function(event){
         jsQuestionScreen.hide();
 
         var answerID=-1;
-        switch(event.target.id){
-            case 'answer1':
-                answerID=0;
-                break;
-            case 'answer2':
-                answerID=1;
-                break;
-            case 'answer3':
-                answerID=2;
-                break;
+        if(event != null){
+            switch(event.target.id){
+                case 'answer1':
+                    answerID=0;
+                    break;
+                case 'answer2':
+                    answerID=1;
+                    break;
+                case 'answer3':
+                    answerID=2;
+                    break;
+            }
         }
 
         Quizz.answer(answerID);
@@ -46,18 +48,42 @@
         jsAnswerScreen.html(Quizz.renderAnswerTemplate(answerTemplate,question,answerID));
         
         jsAnswerScreen.show();
-    });
+    }
 
-    jsAnswerScreen.on('click','#next-question',function(){
+    var goToQuestion = function(event){
         jsAnswerScreen.hide();
+        previousQuestion = Quizz.getCurrent();
         question = Quizz.getNext();
-        jsQuestionScreen.html(Quizz.renderQuestionTemplate(questionTemplate,question)).show();
-    });
+        if(question != null){
+            jsQuestionScreen.html(Quizz.renderQuestionTemplate(questionTemplate,question)).show();
+            timerTime = Quizz.getTimer()/1000;
+            timer = setTimeout(timeOutFunction,1000);
+        }else{
+            question = previousQuestion;
+            goToAnswer(null);
+        }
+    }
+
+    var timeOutFunction = function(){
+        timerTime = timerTime-1;
+        if(timerTime>0){
+            $('#timer').html(timerTime);
+            setTimeout(timeOutFunction,1000);
+        }else{
+            Quizz.answer(-1);
+            goToQuestion(null);
+        }
+    }
+
+    jsQuestionScreen.on('click','#multiple-choice button',goToAnswer);
+
+    jsAnswerScreen.on('click','#next-question',goToQuestion);
     
     // init
     jsQuestionScreen.html(Quizz.renderQuestionTemplate(questionTemplate,question)).show();
 
-    var timerTime = Quizz.getTimer();
+    var timerTime = Quizz.getTimer()/1000;
+    var timer = setTimeout(timeOutFunction,1000);
 
     // WebActivities
     var pickImage = document.querySelector("#pick-image");

@@ -1,7 +1,7 @@
 class Quizz
-  @DefaultTimer: 10000
+  @DefaultTimer: 3000
   @ResultSuccess: 'Right answer!'
-  @ResultFailure: 'Wrong answer! :('
+  @ResultFailure: 'Wrong answer!'
 
   constructor:()->
     console.log("Quizz object created")
@@ -77,7 +77,7 @@ class Quizz
   renderQuestionTemplate:(questionTemplate,question)->
     template = Handlebars.compile(questionTemplate)
     context = 
-      timer: @timer
+      timer: @timer/1000
       current: @getCurrentQuestionNumber()
       number: @getNumberOfQuestions()
       question: question.question
@@ -94,9 +94,10 @@ class Quizz
       resultStatus = 'wrong'
       result = Quizz.ResultFailure
 
-    for response,id in question.responses
-      if response.valid
-        validId = id
+    if question?
+      for response,id in question.responses
+        if response.valid
+          validId = id
 
     if @current+1 < @getNumberOfQuestions()
       nextQuestion = true

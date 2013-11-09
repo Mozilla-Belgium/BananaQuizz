@@ -2,11 +2,11 @@
 var Quizz;
 
 Quizz = (function() {
-  Quizz.DefaultTimer = 10000;
+  Quizz.DefaultTimer = 3000;
 
   Quizz.ResultSuccess = 'Right answer!';
 
-  Quizz.ResultFailure = 'Wrong answer! :(';
+  Quizz.ResultFailure = 'Wrong answer!';
 
   function Quizz() {
     console.log("Quizz object created");
@@ -103,7 +103,7 @@ Quizz = (function() {
     var context, html, template;
     template = Handlebars.compile(questionTemplate);
     context = {
-      timer: this.timer,
+      timer: this.timer / 1000,
       current: this.getCurrentQuestionNumber(),
       number: this.getNumberOfQuestions(),
       question: question.question,
@@ -123,11 +123,13 @@ Quizz = (function() {
       resultStatus = 'wrong';
       result = Quizz.ResultFailure;
     }
-    _ref = question.responses;
-    for (id = _i = 0, _len = _ref.length; _i < _len; id = ++_i) {
-      response = _ref[id];
-      if (response.valid) {
-        validId = id;
+    if (question != null) {
+      _ref = question.responses;
+      for (id = _i = 0, _len = _ref.length; _i < _len; id = ++_i) {
+        response = _ref[id];
+        if (response.valid) {
+          validId = id;
+        }
       }
     }
     if (this.current + 1 < this.getNumberOfQuestions()) {
